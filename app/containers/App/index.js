@@ -8,21 +8,49 @@
  */
 
 import React from 'react';
+
+import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage/Loadable';
+import Header from 'components/ProjectHeader/Loadable';
+import Footer from 'components/ProjectFooter';
+
+import LandingPage from 'containers/LandingPage';
+import Login from 'containers/Login';
+import Profile from 'containers/Profile';
+import FlatProfile from 'containers/FlatProfile';
+import UserDashboard from 'containers/UserDashboard';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
 
+
+
+const ContentSec = styled.div`  
+  min-height:100%;
+`;
+
 export default function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+    <div style={{ height: "100%" }}>
+      <Header />
+      <div className="clearfix" />
+      <ContentSec>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/Login" component={Login} />
+          <Route exact path="/Profile" component={Profile} />
+          <Route exact path="/FlatProfile" component={FlatProfile} />
+          <Route exact path="/Dashboard" component={UserDashboard} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      
+
+      </ContentSec>
+      <div className="clearfix" />
+      <Footer />
       <GlobalStyle />
+
     </div>
   );
 }

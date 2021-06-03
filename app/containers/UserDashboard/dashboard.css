@@ -1,0 +1,173 @@
+#dashContainer {
+    padding: 10px 0px;
+}
+
+#dashContainer .userCard{
+    background-color: midnightblue;
+    border-radius: 10px;
+    min-height: 150px;
+    color:#e5e5e5;
+    padding: 10px 10px;
+    margin: 5px;
+}
+#dashContainer .userCard .userTitle{
+    font-weight: 500;
+    font-size: 18px;
+    padding: 2%;
+    line-height: 1.6;
+}
+.cardHeader {
+    cursor: pointer;
+}
+#dashContainer .guageCard, #dashContainer .tblCard {
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    min-height: 150px;
+    padding: 10px 10px;
+    box-shadow: 1px 1px 5px #d3d3d3;
+    margin: 5px;
+}
+
+#dashContainer .editBtn {
+    color: #d3d3d3;
+    font-size: normal;
+}
+
+.indicator-volume {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    user-select: none;
+    font-size: 40px;
+    color: #9c9c9c;
+}
+.RCP {
+    width: 100% !important;
+}
+.cardTitle{
+    float: left;
+    display: inline;
+    text-align: left;
+}
+#dashContainer .guageCard .cardTitle,#dashContainer .guageCard .cardAction{
+    color: #828282;
+    cursor: pointer;
+}
+#dashContainer .guageCard .guageCardFooter{
+    color: #828282;
+}
+.cardAction{
+    float: right;
+    display: inline;
+    text-align: right;
+}
+#dashContainer .guageCard .indicator-volume .percentage {
+font-size: 20px;
+}
+#dashContainer .guageCard .icMobProgress {
+ color : #9c9c9c;
+ font-size: 20px;
+}
+#dashContainer .guageCard .mobProgressSec {
+    padding: 13px 18px 15px 0px;
+}
+
+#dashContainer .guageCard .mobProgressSec .progress {
+height: 10px;
+background-color: #d3d3d3;
+}
+
+#dashContainer .guageCard .mobProgHeader {
+    color:#6c757d;
+}
+#dashContainer .tblCard{
+    height: 300px;
+overflow-y: auto;
+}
+#dashContainer .tblCard .tblRow{
+    padding: 5px 0px;
+    font-size: 14px;
+}
+
+#dashContainer .tblCard .cardHeader{
+    padding: 10px 0px ;
+    margin-bottom: 10px;
+}
+#dashContainer .tblCard .tblRow:not(:last-child){
+    border-bottom: 1px solid #eaeaea;
+}
+
+#dashContainer .tblCard .tblRow:hover{
+    background-color: #d3d3d3;
+    cursor: pointer;
+}
+
+#dashContainer .tblCard .tblRow .tblDateSec{
+    font-weight: 500;
+}
+#dashContainer .tblCard .tblRow .tblActionBtn{
+    color:#9c9c9c;
+}
+
+#dashContainer .neighbourHoodSec{
+    margin-bottom: 2.5%;
+}
+#dashContainer  .businessContainer{
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+#dashContainer .neighbourHoodSec hr, #dashContainer .businessContainer hr{
+    margin-top: 5px;
+}
+#dashContainer .neighbourHoodSec .neighbourName{
+    font-size: 14px;
+    padding-top: 5px;
+color: #6c757d;
+} 
+#dashContainer .neighbourHoodSec .avatarSec{
+    padding-top: 10px !important;
+}
+
+#dashContainer .neighbourHoodSec .avatarSec .btn-sm{
+    padding: 2px 5px;
+}
+
+#dashContainer .neighbourHoodSec .avatarViewAllBtn{
+    padding-top: 4% !important;
+}
+
+#dashContainer .neighbourHoodSec .mobNeighbourName {
+
+    vertical-align: middle;
+    padding-top: 5px !important;
+    font-size: 14px;
+}
+
+
+#dashContainer .businessContainer .businessIcon{
+    font-size: 45px;
+}
+#dashContainer .businessSec {
+    border:1px solid #fff;
+    color:#6a6a6a;
+    padding: 5px !important;
+}
+#dashContainer .businessSec .businessName {
+    font-size: 14px;
+}
+#dashContainer .businessSec:hover{
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #d3d3d3;
+    cursor: pointer;
+    color: midnightblue;
+}
+#dashContainer .businessContainer .avatarViewAllBtn{
+    padding-top: 2% !important;
+}

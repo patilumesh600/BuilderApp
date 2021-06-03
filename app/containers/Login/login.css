@@ -1,0 +1,47 @@
+#loginContainer {
+    background-image: url("../../images/backgrounds/bg3.jpg");
+    height: 100%;
+    background-size: cover;
+    padding-top: 5%;
+}
+#loginContainer .loginHeading3 {
+    text-align: center;
+}
+
+#loginContainer .loginBox {
+    min-height: 80%;
+    border: 1px solid #ffc107;
+    background-color: #ffc107a5;
+    padding:15px;
+}
+
+#loginContainer .form-label {
+    font-weight: 500;
+}
+
+
+#loginContainer .infoHeading {  
+    font-size: 45px;
+    font-weight: 700;
+    
+}
+
+#loginContainer .infoTxtSec {
+    padding-top: 5%;
+    color:#5d5d5d;
+}
+
+#loginContainer .infoTxtSec ul{
+    line-height: 2;
+}
+
+
+#loginContainer .regText{
+    text-decoration: none;
+    font-size: 16px;
+    color:#495057;
+}
+#loginContainer .regLink{
+    text-decoration: none;
+    color:#000;
+}

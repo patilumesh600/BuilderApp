@@ -1,0 +1,18 @@
+#flatProfContainer {
+    padding: 10px;
+}
+
+#flatProfContainer .flatDetailCard,#flatProfContainer .timelineCard{
+    border-radius: 3px;
+    border:1px solid #d3d3d3;
+    min-height: 100pxs;
+    padding: 5px;
+}
+
+#flatProfContainer .vertical-timeline::before{
+    background: midnightblue;
+}
+
+#flatProfContainer .timeLineSec{
+    width: 100% !important;
+}

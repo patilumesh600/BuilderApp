@@ -1,0 +1,5 @@
+#landingContainer .searchContainer {
+min-height: 500px;
+background-image: url("../../images/backgrounds/bg4.jpg");
+background-size: cover;
+}
