@@ -48,7 +48,7 @@ min-height: 100% !important;
   }
   .hrgray{
     border-top:1px solid #d3d3d3;
-    margin-top:2px;
+    margin-top:5px;
   }
   .reqSign{
     color:red;
@@ -61,6 +61,15 @@ min-height: 100% !important;
   }
   .pad-2{
     padding:0px 2px !important;
+  }
+  .pad-t-2{
+    padding-top:2px !important;
+  }
+  .pad-t-5{
+    padding-top:5px !important;
+  }
+  .pad-t-10{
+    padding-top:10px !important;
   }
 .colrWood {
   color :#5B270B !important;
@@ -146,6 +155,9 @@ min-height: 100% !important;
 }
 .css-1qwnlhg-VerticalCircleWrapper::after{
   background:#ffe083 !important; 
+}
+.btn-sm{
+  padding: 2px 5px;
 }
 `;
 

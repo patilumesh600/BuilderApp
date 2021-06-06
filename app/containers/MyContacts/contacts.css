@@ -1,0 +1,50 @@
+#contactContainer {
+    padding: 10px;
+}
+#contactContainer .contactListCont{
+    min-height: 100px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    padding:10px 15px;
+}
+
+#contactContainer .contactListCont .contactListHdr{
+    font-size: 16px;
+    font-weight: 500;
+    margin: 5px 0px;
+}
+#contactContainer .contactListCont .contactList{
+    margin-top: 2px;
+}
+#contactContainer .contactListCont .contactList .card{
+    border-radius: 0px;
+}
+
+#contactContainer .contactListCont .contactList .card-header{
+    background-color: #fff;
+    padding: 5px 20px;
+}
+
+#contactContainer .contactListCont .contactList .card-header .contactAvatar
+{
+    padding: 2px 0px;
+    text-align: center;
+}
+#contactContainer .contactListCont .contactList .card-header .contactNm
+{
+    font-size: 14px;
+    font-weight: 500;
+}
+#contactContainer .contactListCont .contactList .card-header .contactDetails
+{
+    font-size: 14px;
+    color: #5d5d5d;
+}
+#contactContainer .contactListCont .contactList .card-header .contactDetails .badge
+{
+    font-weight: normal;
+}
+#contactContainer .contactListCont .contactList .card-header .contactActn {
+    padding-top: 10px !important;
+    color: #5d5d5d;
+}

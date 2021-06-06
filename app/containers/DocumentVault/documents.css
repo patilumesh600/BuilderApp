@@ -1,0 +1,33 @@
+#docContainer {
+    padding: 10px !important;
+}
+#docContainer .docMainSec {
+    min-height: 100px;
+    border-radius: 5px;
+    border:1px solid #d3d3d3;
+}
+#docContainer .filterSec{
+    margin-bottom: 5px;
+}
+
+#docContainer .docMainSec .docTblHdr{
+    background-color: #eaeaea;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 0px !important;
+}
+#docContainer .docMainSec .docListItem{
+    padding: 10px 0px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 14px;
+}
+
+#docContainer .docMainSec .docListItem .docMobDetails
+{
+    font-size: 13px;
+    color: #5d5d5d;
+}
+
+#docContainer .docMainSec .docListItem .docListAction{
+    padding-top: 5px;
+}

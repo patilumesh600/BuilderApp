@@ -98,6 +98,7 @@ overflow-y: auto;
 #dashContainer .tblCard .cardHeader{
     padding: 10px 0px ;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 #dashContainer .tblCard .tblRow:not(:last-child){
     border-bottom: 1px solid #eaeaea;
@@ -108,9 +109,6 @@ overflow-y: auto;
     cursor: pointer;
 }
 
-#dashContainer .tblCard .tblRow .tblDateSec{
-    font-weight: 500;
-}
 #dashContainer .tblCard .tblRow .tblActionBtn{
     color:#9c9c9c;
 }

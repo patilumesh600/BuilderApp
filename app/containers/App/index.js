@@ -18,6 +18,8 @@ import Footer from 'components/ProjectFooter';
 import LandingPage from 'containers/LandingPage';
 import Login from 'containers/Login';
 import Profile from 'containers/Profile';
+import Contacts from 'containers/MyContacts';
+import DocumentVault from 'containers/DocumentVault';
 import FlatProfile from 'containers/FlatProfile';
 import UserDashboard from 'containers/UserDashboard';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -41,6 +43,8 @@ export default function App() {
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Profile" component={Profile} />
           <Route exact path="/FlatProfile" component={FlatProfile} />
+          <Route exact path="/Contacts" component={Contacts} />
+          <Route exact path="/DocumentVault" component={DocumentVault} />
           <Route exact path="/Dashboard" component={UserDashboard} />
           <Route component={NotFoundPage} />
         </Switch>

@@ -21,7 +21,7 @@ function ProjectHeader() {
         <RBS.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <RBS.Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end" >
           <RBS.Nav>
-            <RBS.Nav.Link href="/" className="helpIcon"><FontAwesomeIcon icon={faHome} /> Home</RBS.Nav.Link>
+            <RBS.Nav.Link href="/dashboard" className="helpIcon"><FontAwesomeIcon icon={faHome} /> Home</RBS.Nav.Link>
             <RBS.Nav.Link href="#transaction" className="helpIcon"><FontAwesomeIcon icon={faWallet} /> Transactions</RBS.Nav.Link>
             <RBS.Nav.Link href="#documents" className="helpIcon"><FontAwesomeIcon icon={faFolderOpen} /> Documents</RBS.Nav.Link>
             <RBS.Nav.Link eventKey={2} href="#logout" className="helpIcon">

@@ -2,7 +2,13 @@
     padding: 10px;
 }
 
-#flatProfContainer .flatDetailCard,#flatProfContainer .timelineCard{
+#flatProfContainer .flatDetailCard{
+    border-radius: 3px;
+    border:1px solid #d3d3d3;
+    min-height: 100px;
+}
+
+#flatProfContainer .timelineCard{
     border-radius: 3px;
     border:1px solid #d3d3d3;
     min-height: 100pxs;
@@ -15,4 +21,57 @@
 
 #flatProfContainer .timeLineSec{
     width: 100% !important;
+}
+#flatProfContainer .timeLineSec .timeLineDt{
+    font-size: 16px !important;
+    font-weight: 500;
+}
+#flatProfContainer .timeLineSec .timeLineHdr{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#flatProfContainer .flatDetailCard .flatDetailHdr
+{
+    color: #9c9c9c;
+    text-align: center;
+    min-height: 100px;
+    padding-top: 10px !important;
+}
+#flatProfContainer .flatDetailCard .flatDetailHdr .flatDetailsIcon{
+    font-size: 4rem;
+}
+#flatProfContainer .flatDetailCard .flatDetailHdr .flatNo{
+    font-size: 18px;
+    font-weight: 500;
+}
+#flatProfContainer .flatDetailCard .flatDetailHdr .flatOwnerNm{
+    font-size: 18px;
+    font-weight: 500;
+}
+#flatProfContainer .flatDetailCard .flatDetailLbl {
+    font-size: 14px;
+    font-weight: 500;
+}
+#flatProfContainer .flatDetailCard .flatDetailValue {
+    font-size: 14px;
+    padding-bottom: 7px;
+}
+
+#flatProfContainer .flatDetailCard .flatDetailHdr .flatDetailsIcon .indicator-volume {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top: 26%;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    user-select: none;
+    font-size: 40px;
+    color: #9c9c9c;
+}
+
+#flatProfContainer .flatDetailCard .flatDetailHdr .flatDetailsIcon .indicator-volume .percentage {
+    font-size: 25px;
 }
