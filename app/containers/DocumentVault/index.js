@@ -18,13 +18,10 @@ import saga from './saga';
 
 
 import * as RBS from 'react-bootstrap';
-import { faCalendarPlus, faCloudDownloadAlt, faDownload, faEllipsisV, faForward, faHome, faHouseUser, faPlus, faSearch, faShare, faStar, faTrash, faUsers } from '@fortawesome/free-solid-svg-icons';
-import { faFileExcel, faBuilding, faFilePdf, faFileImage, faFileWord, } from '@fortawesome/free-regular-svg-icons';
+import { faEllipsisV, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faFileExcel, faFilePdf, faFileImage, faFileWord } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import userImg from '../../images/icons/UserIcon.jpg';
-import ProgressBar from 'react-customizable-progressbar';
 import Avatar, { ConfigProvider } from 'react-avatar';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import './documents.css';
 
 export function DocumentVault() {

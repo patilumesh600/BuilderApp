@@ -1,0 +1,8 @@
+#filterSecMain .filterHeading {
+    font-size: 14px;
+    font-weight: 500;
+    color: #5d5d5d;
+}
+#filterSecMain .form-check {
+    display: inline;
+}

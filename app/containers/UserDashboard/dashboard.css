@@ -3,7 +3,9 @@
 }
 
 #dashContainer .userCard{
-    background-color: midnightblue;
+    /* background-color: midnightblue; */
+    background-color: #29539b;
+    background-image: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);
     border-radius: 10px;
     min-height: 150px;
     color:#e5e5e5;
