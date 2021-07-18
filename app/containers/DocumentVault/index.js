@@ -1,10 +1,10 @@
+/* eslint-disable react/no-unused-prop-types */
 /**
  *
  * DocumentVault
  *
  */
-
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -12,21 +12,25 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectDocumentVault from './selectors';
-import reducer from './reducer';
-import saga from './saga';
 
 
 import * as RBS from 'react-bootstrap';
+
+import DocUploadModal from 'components/DocumentUpload';
+
 import { faEllipsisV, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faFileExcel, faFilePdf, faFileImage, faFileWord } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Avatar, { ConfigProvider } from 'react-avatar';
+import Avatar from 'react-avatar';
+import saga from './saga';
+import reducer from './reducer';
+import makeSelectDocumentVault from './selectors';
 import './documents.css';
 
 export function DocumentVault() {
   useInjectReducer({ key: 'documentVault', reducer });
   useInjectSaga({ key: 'documentVault', saga });
+  const [modalShow, setModalShow] = useState(false);
 
   return <div id="docContainer">
     <RBS.Container fluid>
@@ -48,7 +52,7 @@ export function DocumentVault() {
           </RBS.Col>
           <RBS.Col md={5} className="d-none d-md-inline"></RBS.Col>
           <RBS.Col md={2} className="text-right pad-0" xs={2} >
-            <RBS.Button variant="outline-primary" size="sm"> <FontAwesomeIcon icon={faPlus} /> <span className="d-none d-md-inline">Add</span></RBS.Button>
+            <RBS.Button variant="outline-primary" size="sm" onClick={() => setModalShow(true)}> <FontAwesomeIcon icon={faPlus} /> <span className="d-none d-md-inline">Add</span></RBS.Button>
             <div className="clearfix" />
           </RBS.Col>
           <div className="clearfix" />
@@ -69,18 +73,18 @@ export function DocumentVault() {
           <RBS.Row className="docListItem">
             <RBS.Col md={1} xs={2} className="pad-2 text-center pad-t-5">1</RBS.Col>
             <RBS.Col md={4} xs={8} className="fileName pad-2 pad-t-5"><FontAwesomeIcon icon={faFilePdf} className="text-danger" /> Agreement Letter
-            <div className="clearfix" />
+              <div className="clearfix" />
               <div className="d-block d-md-none docMobDetails"><small>Flat Document | 12-Apr-2020</small> </div>
             </RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5"><RBS.Badge pill variant="secondary"> Flat Document</RBS.Badge></RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5">12-Apr-2020</RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline">
-              <Avatar size="30" round={true} name="Sanket Deshmukh" color="#364675" />
-              <Avatar size="30" round={true} name="Mahesh Chavan" color="#ba1f25" />
-              <Avatar size="30" round={true} name="Umesh Patil" color="#d11fd2" />
-              <Avatar size="30" round={true} name="Sanket Deshmukh" color="#364675" />
-              <Avatar size="30" round={true} name="Mahesh Chavan" color="#ba1f25" />
-              <Avatar size="30" round={true} name="+1" color="#9d9d9d" />
+              <Avatar size="30" round name="Sanket Deshmukh" color="#364675" />
+              <Avatar size="30" round name="Mahesh Chavan" color="#ba1f25" />
+              <Avatar size="30" round name="Umesh Patil" color="#d11fd2" />
+              <Avatar size="30" round name="Sanket Deshmukh" color="#364675" />
+              <Avatar size="30" round name="Mahesh Chavan" color="#ba1f25" />
+              <Avatar size="30" round name="+1" color="#9d9d9d" />
             </RBS.Col>
 
             <RBS.Col md={1} xs={2} className="text-right docListAction">
@@ -90,13 +94,13 @@ export function DocumentVault() {
           <RBS.Row className="docListItem">
             <RBS.Col md={1} xs={2} className="pad-2 text-center  pad-t-5">2</RBS.Col>
             <RBS.Col md={4} xs={8} className="fileName pad-2 pad-t-5"><FontAwesomeIcon icon={faFilePdf} className="text-danger" /> Demand Letter -20-Apr-2021
-            <div className="clearfix" />
+              <div className="clearfix" />
               <div className="d-block d-md-none docMobDetails"><small>Builder Document | 20-Apr-2021</small> </div>
             </RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5"><RBS.Badge pill variant="primary"> Builder Document</RBS.Badge></RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5">20-Apr-2021</RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline">
-              <Avatar size="30" round={true} name="Sanket Deshmukh" color="#364675" />
+              <Avatar size="30" round name="Sanket Deshmukh" color="#364675" />
             </RBS.Col>
 
             <RBS.Col md={1} xs={2} className="text-right docListAction">
@@ -107,14 +111,14 @@ export function DocumentVault() {
           <RBS.Row className="docListItem">
             <RBS.Col md={1} xs={2} className="pad-2 text-center  pad-t-5">3</RBS.Col>
             <RBS.Col md={4} xs={8} className="fileName pad-2 pad-t-5"><FontAwesomeIcon icon={faFilePdf} className="text-danger" /> &nbsp;Provisional Sanction Letter
-            <div className="clearfix" />
+              <div className="clearfix" />
               <div className="d-block d-md-none docMobDetails"><small>Bank Document | 12-Apr-2020</small> </div>
             </RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5"><RBS.Badge pill variant="warning"> Bank Document</RBS.Badge></RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5">12-May-2020</RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline">
-              <Avatar size="30" round={true} name="Sanket Deshmukh" color="#364675" />
-              <Avatar size="30" round={true} name="Mahesh Chavan" color="#ba1f25" />
+              <Avatar size="30" round name="Sanket Deshmukh" color="#364675" />
+              <Avatar size="30" round name="Mahesh Chavan" color="#ba1f25" />
             </RBS.Col>
 
             <RBS.Col md={1} xs={2} className="text-right docListAction">
@@ -125,7 +129,7 @@ export function DocumentVault() {
           <RBS.Row className="docListItem">
             <RBS.Col md={1} xs={2} className="pad-2 text-center  pad-t-5">4</RBS.Col>
             <RBS.Col md={4} xs={8} className="fileName pad-2 pad-t-5"><FontAwesomeIcon icon={faFileExcel} className="text-success" /> Expanse sheet
-            <div className="clearfix" />
+              <div className="clearfix" />
               <div className="d-block d-md-none docMobDetails"><small>Personal | 12-Apr-2020</small> </div>
             </RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5"><RBS.Badge pill variant="danger"> Personal</RBS.Badge></RBS.Col>
@@ -142,16 +146,16 @@ export function DocumentVault() {
           <RBS.Row className="docListItem">
             <RBS.Col md={1} xs={2} className="pad-2 text-center  pad-t-5">5</RBS.Col>
             <RBS.Col md={4} xs={8} className="fileName pad-2 pad-t-5"><FontAwesomeIcon icon={faFilePdf} className="text-danger" /> Agreement Letter
-            <div className="clearfix" />
+              <div className="clearfix" />
               <div className="d-block d-md-none docMobDetails"><small>Builder Document | 12-Apr-2020</small> </div>
             </RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5"><RBS.Badge pill variant="primary"> Builder Document</RBS.Badge></RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5">12-Apr-2020</RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline">
-              <Avatar size="30" round={true} name="Sanket Deshmukh" color="#364675" />
-              <Avatar size="30" round={true} name="Mahesh Chavan" color="#ba1f25" />
-              <Avatar size="30" round={true} name="Umesh Patil" color="#d11fd2" />
-              <Avatar size="30" round={true} name="+1" color="#9d9d9d" />
+              <Avatar size="30" round name="Sanket Deshmukh" color="#364675" />
+              <Avatar size="30" round name="Mahesh Chavan" color="#ba1f25" />
+              <Avatar size="30" round name="Umesh Patil" color="#d11fd2" />
+              <Avatar size="30" round name="+1" color="#9d9d9d" />
             </RBS.Col>
 
             <RBS.Col md={1} xs={2} className="text-right docListAction">
@@ -162,13 +166,13 @@ export function DocumentVault() {
           <RBS.Row className="docListItem">
             <RBS.Col md={1} xs={2} className="pad-2 text-center  pad-t-5">6</RBS.Col>
             <RBS.Col md={4} xs={8} className="fileName pad-2 pad-t-5"><FontAwesomeIcon icon={faFilePdf} className="text-danger" /> Demand Letter
-            <div className="clearfix" />
+              <div className="clearfix" />
               <div className="d-block d-md-none docMobDetails"><small>Builder Document | 12-Apr-2020</small> </div>
             </RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5"><RBS.Badge pill variant="primary"> Builder Document</RBS.Badge></RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5">12-Apr-2020</RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline">
-              <Avatar size="30" round={true} name="Sanket Deshmukh" color="#364675" />
+              <Avatar size="30" round name="Sanket Deshmukh" color="#364675" />
             </RBS.Col>
 
             <RBS.Col md={1} xs={2} className="text-right docListAction">
@@ -179,7 +183,7 @@ export function DocumentVault() {
           <RBS.Row className="docListItem">
             <RBS.Col md={1} xs={2} className="pad-2 text-center  pad-t-5">7</RBS.Col>
             <RBS.Col md={4} xs={8} className="fileName pad-2 pad-t-5"><FontAwesomeIcon icon={faFileImage} className="text-secondary" /> Payment Check Scan Copy
-            <div className="clearfix" />
+              <div className="clearfix" />
               <div className="d-block d-md-none docMobDetails"><small>Personal | 12-Apr-2020</small> </div>
             </RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5"><RBS.Badge pill variant="danger">Personal</RBS.Badge></RBS.Col>
@@ -195,16 +199,16 @@ export function DocumentVault() {
           <RBS.Row className="docListItem">
             <RBS.Col md={1} xs={2} className="pad-2 text-center  pad-t-5">8</RBS.Col>
             <RBS.Col md={4} xs={8} className="fileName pad-2 pad-t-5"><FontAwesomeIcon icon={faFileWord} className="text-success" /> Welcome Letter
-            <div className="clearfix" />
+              <div className="clearfix" />
               <div className="d-block d-md-none docMobDetails"><small>Flat Document | 12-Apr-2020</small> </div>
             </RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5"><RBS.Badge pill variant="secondary"> Flat Document</RBS.Badge></RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline  pad-t-5">12-Apr-2020</RBS.Col>
             <RBS.Col md={2} className="d-none d-md-inline">
-              <Avatar size="30" round={true} name="Sanket Deshmukh" color="#364675" />
-              <Avatar size="30" round={true} name="Mahesh Chavan" color="#ba1f25" />
-              <Avatar size="30" round={true} name="Umesh Patil" color="#d11fd2" />
-              <Avatar size="30" round={true} name="+1" color="#9d9d9d" />
+              <Avatar size="30" round name="Sanket Deshmukh" color="#364675" />
+              <Avatar size="30" round name="Mahesh Chavan" color="#ba1f25" />
+              <Avatar size="30" round name="Umesh Patil" color="#d11fd2" />
+              <Avatar size="30" round name="+1" color="#9d9d9d" />
             </RBS.Col>
 
             <RBS.Col md={1} xs={2} className="text-right docListAction">
@@ -214,6 +218,10 @@ export function DocumentVault() {
 
         </RBS.Col>
       </RBS.Row>
+      <RBS.Row>
+        <DocUploadModal show={modalShow} onHide={() => setModalShow(false)} />
+      </RBS.Row>
+
     </RBS.Container>
   </div>;
 }

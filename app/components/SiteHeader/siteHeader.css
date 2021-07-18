@@ -1,0 +1,25 @@
+#siteHdrContainer .navbar {
+    color: #fff  !important;
+    box-shadow: 1px 1px 2px #9c9c9c;
+}
+.brandSubTitle{
+    font-size:12px !important;
+  }
+#siteHdrContainer .helpIcon{
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+/* #siteHdrContainer .helpIcon:hover, #siteHdrContainer .helpIcon.active {
+    border: 1px solid #ff6701;
+    border-radius: 5px;
+    color: #9c9c9c;
+} */
+
+#siteHdrContainer .brandIcon{
+    font-size: 28px !important;
+}
+
+#siteHdrContainer  .navbar-light .navbar-toggler{
+    border:none;
+}

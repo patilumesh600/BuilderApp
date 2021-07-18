@@ -1,10 +1,11 @@
+/* eslint-disable react/no-unused-prop-types */
 /**
  *
  * PaymentHistory
  *
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -12,21 +13,23 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectPaymentHistory from './selectors';
-import reducer from './reducer';
-import saga from './saga';
 
+import AddPayment from 'components/AddPayment';
 
 import * as RBS from 'react-bootstrap';
-import { faDownload, faPlus, faRupeeSign, faSave, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faDownload, faPlus, faRupeeSign, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Avatar, { ConfigProvider } from 'react-avatar';
+import saga from './saga';
+import reducer from './reducer';
+import makeSelectPaymentHistory from './selectors';
 import './payHistory.css';
 
 export function PaymentHistory() {
   useInjectReducer({ key: 'paymentHistory', reducer });
   useInjectSaga({ key: 'paymentHistory', saga });
+
+
+  const [modalShow, setModalShow] = useState(false);
 
   return <div id="payContainer">
     <RBS.Container fluid>
@@ -87,7 +90,7 @@ export function PaymentHistory() {
               </RBS.InputGroup>
             </RBS.Col>
             <RBS.Col md={7} xs={1} className="pad-2 text-right">
-              <RBS.Button variant="outline-primary" size="sm"><FontAwesomeIcon icon={faPlus} /> <div className="d-none d-md-inline" >Add</div></RBS.Button>
+              <RBS.Button variant="outline-primary" size="sm"  onClick={() => setModalShow(true)} ><FontAwesomeIcon icon={faPlus} /> <div className="d-none d-md-inline" >Add</div></RBS.Button>
             </RBS.Col>
           </RBS.Row>
           <br />
@@ -164,7 +167,7 @@ export function PaymentHistory() {
               <div className="txnMobDetails d-block d-md-none"><small>12-May-2020</small></div>
             </RBS.Col>
             <RBS.Col md={3} className="TxnDate d-none d-md-block  pad-0">
-            12-May-2020
+              12-May-2020
             </RBS.Col>
             <RBS.Col md={1} xs={3} className="TxnAmt text-right text-danger  pad-5">
               50,000
@@ -177,6 +180,9 @@ export function PaymentHistory() {
         </RBS.Col>
       </RBS.Row>
     </RBS.Container>
+    <div>
+      <AddPayment show={modalShow} onHide={() => setModalShow(false)} />
+    </div>
   </div>;
 }
 

@@ -1,13 +1,12 @@
 #payContianer {}
 
-#payContainer .payHdr{
-min-height: 150px;
-padding: 15px;
-color: #fff;
-background-color: #a40606;
-background-image: linear-gradient(315deg, #a40606 0%, #d98324 74%);
-
-color: #fff;
+#payContainer .payHdr {
+    min-height: 130px;
+    padding: 5px 15px;
+    color: #fff;
+    background-color: #a40606;
+    background-image: linear-gradient(315deg, #a40606 0%, #d98324 74%);
+    color: #fff;
 }
 
 #payContainer .payHistory{

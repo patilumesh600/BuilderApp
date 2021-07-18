@@ -1,10 +1,12 @@
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/jsx-no-duplicate-props */
 /**
  *
  * UserDashboard
  *
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -12,23 +14,56 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectUserDashboard from './selectors';
-import reducer from './reducer';
-import saga from './saga';
 import "./dashboard.css";
 
+
+import BookVisit from 'components/BookVisit';
+import AddDocument from 'components/DocumentUpload';
+
 import * as RBS from 'react-bootstrap';
-import { faExpandAlt, faPencilAlt, faWallet, faHouseUser, faRupeeSign, faEllipsisV, faFilePdf, faFileWord, faCouch, faPaintRoller, faCarrot, faTruckLoading, faCapsules, faShoppingBasket, faWrench, faCar, faCocktail, faClinicMedical, faGavel, faPhoneAlt, faPlusCircle, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
-import { faFileExcel } from '@fortawesome/free-regular-svg-icons';
+import { faExpandAlt, faPencilAlt, faWallet, faHouseUser, faRupeeSign, faEllipsisV, faFilePdf, faFileWord, faCouch, faPaintRoller, faCarrot, faTruckLoading, faCapsules, faShoppingBasket, faWrench, faCar, faCocktail, faClinicMedical, faGavel, faPhoneAlt, faPlusCircle, faChevronCircleRight, faShare, faLock, faTrashAlt, faFileDownload } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faFileExcel } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import userImg from '../../images/icons/UserIcon.jpg';
 import ProgressBar from 'react-customizable-progressbar';
 import Avatar, { ConfigProvider } from 'react-avatar';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import userImg from '../../images/icons/UserIcon.jpg';
+import saga from './saga';
+import reducer from './reducer';
+import makeSelectUserDashboard from './selectors';
 
 export function UserDashboard() {
   useInjectReducer({ key: 'userDashboard', reducer });
   useInjectSaga({ key: 'userDashboard', saga });
+
+  const [modalShow, setModalShow] = useState(false);
+  const [modalDocShow, setDocModalShow] = useState(false);
+
+  const documentOpt = (
+    <RBS.Popover id="popover-basic">
+      <RBS.Popover.Content>
+        <RBS.ListGroup variant="flush">
+          <RBS.ListGroup.Item action><FontAwesomeIcon icon={faShare} /> Share </RBS.ListGroup.Item>
+          <RBS.ListGroup.Item action><FontAwesomeIcon icon={faLock} /> Mark As Private </RBS.ListGroup.Item>
+          <RBS.ListGroup.Item action><FontAwesomeIcon icon={faTrashAlt} /> Delete </RBS.ListGroup.Item>
+        </RBS.ListGroup>
+      </RBS.Popover.Content>
+    </RBS.Popover>
+  );
+
+  const visitOpt = (
+    <RBS.Popover id="popover-basic">
+      <RBS.Popover.Content>
+        <RBS.ListGroup variant="flush">
+          <RBS.ListGroup.Item action><FontAwesomeIcon icon={faClock} /> Schedule FollowUp </RBS.ListGroup.Item>
+          <RBS.ListGroup.Item action><FontAwesomeIcon icon={faFileDownload} /> Download Documents </RBS.ListGroup.Item>
+          <RBS.ListGroup.Item action><FontAwesomeIcon icon={faPencilAlt} /> Add Note </RBS.ListGroup.Item>
+        </RBS.ListGroup>
+      </RBS.Popover.Content>
+    </RBS.Popover>
+  );
+
+
 
   return <div id="dashContainer">
     <RBS.Container fluid>
@@ -37,7 +72,7 @@ export function UserDashboard() {
           <div className="userCard">
             <RBS.Col md={12} className="cardHeader pad-5">
               <div className="cardTitle" ></div>
-              <div className="cardAction"> <FontAwesomeIcon icon={faPencilAlt} /></div>
+              <div className="cardAction"> <FontAwesomeIcon icon={faPencilAlt} onClick={() => window.open("/profile")} /></div>
             </RBS.Col>
             <div className="clearfix" />
             <div className="clearfix" />
@@ -48,7 +83,7 @@ export function UserDashboard() {
             </RBS.Col>
             <RBS.Col xs={12} md={12} className="text-center">
               <div className="userTitle"> Sanket Deshmukh
-            <div className="clearfix" />
+                <div className="clearfix" />
                 <small>A-306, Silver City</small>
                 <div className="clearfix" />
                 <small>First Owner</small>
@@ -61,7 +96,7 @@ export function UserDashboard() {
           <div className="item guageCard">
             <RBS.Col md={12} className="cardHeader pad-5">
               <div className="cardTitle" >Flat Completion Status</div>
-              <div className="cardAction"> <FontAwesomeIcon icon={faExpandAlt} /></div>
+              <div className="cardAction"> <FontAwesomeIcon icon={faExpandAlt} onClick={() => window.open("/flatprofile")} /></div>
             </RBS.Col>
             <div className="clearfix" />
             <ProgressBar
@@ -76,7 +111,7 @@ export function UserDashboard() {
               trackStrokeColor="#d3d3d3"
               trackStrokeLinecap="square"
               pointerRadius={0}
-              initialAnimation={true}
+              initialAnimation
               transition="1.5s ease 0.5s"
               trackTransition="0s ease"
             >
@@ -101,7 +136,7 @@ export function UserDashboard() {
           <div className="item guageCard">
             <RBS.Col md={12} className="cardHeader pad-5">
               <div className="cardTitle" >Payment Status</div>
-              <div className="cardAction"> <FontAwesomeIcon icon={faExpandAlt} /></div>
+              <div className="cardAction"> <FontAwesomeIcon icon={faExpandAlt} onClick={() => window.open("/payment")} /></div>
             </RBS.Col>
             <div className="clearfix" />
             <ProgressBar
@@ -116,7 +151,7 @@ export function UserDashboard() {
               trackStrokeColor="#d3d3d3"
               trackStrokeLinecap="square"
               pointerRadius={0}
-              initialAnimation={true}
+              initialAnimation
               transition="1.5s ease 0.5s"
               trackTransition="0s ease"
             >
@@ -166,7 +201,7 @@ export function UserDashboard() {
           <div className="tblCard tblContianer" >
             <RBS.Col md={12} className="cardHeader pad-5">
               <div className="cardTitle" >Visits Details</div>
-              <div className="cardAction"> <FontAwesomeIcon icon={faPlusCircle} /> &nbsp; <FontAwesomeIcon icon={faExpandAlt} /></div>
+              <div className="cardAction"> <FontAwesomeIcon icon={faPlusCircle} onClick={() => setModalShow(true)} /> &nbsp; <FontAwesomeIcon icon={faExpandAlt} onClick={() => window.open("/visits")} /></div>
               <div className="clearfix" />
             </RBS.Col>
             <div className="clearfix" />
@@ -175,41 +210,65 @@ export function UserDashboard() {
                 <RBS.Col md={4} xs={4} className="tblDateSec">29-May-2021</RBS.Col>
                 <RBS.Col md={3} xs={3} className="tblTimeSec"> 1.30 PM</RBS.Col>
                 <RBS.Col md={4} xs={4} className="text-center text-success"> Completed</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={visitOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col>
               </RBS.Row>
               <RBS.Row className="tblRow">
                 <RBS.Col md={4} xs={4} className="tblDateSec">29-May-2021</RBS.Col>
                 <RBS.Col md={3} xs={3} className="tblTimeSec"> 1.30 PM</RBS.Col>
                 <RBS.Col md={4} xs={4} className="text-center text-success"> Completed</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
-              </RBS.Row>
-
-              <RBS.Row className="tblRow">
-                <RBS.Col md={4} xs={4} className="tblDateSec">29-May-2021</RBS.Col>
-                <RBS.Col md={3} xs={3} className="tblTimeSec"> 1.30 PM</RBS.Col>
-                <RBS.Col md={4} xs={4} className="text-center text-success"> Completed</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
-              </RBS.Row>
-
-              <RBS.Row className="tblRow">
-                <RBS.Col md={4} xs={4} className="tblDateSec">29-May-2021</RBS.Col>
-                <RBS.Col md={3} xs={3} className="tblTimeSec"> 1.30 PM</RBS.Col>
-                <RBS.Col md={4} xs={4} className="text-center text-success"> Completed</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={visitOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col>
               </RBS.Row>
 
               <RBS.Row className="tblRow">
                 <RBS.Col md={4} xs={4} className="tblDateSec">29-May-2021</RBS.Col>
                 <RBS.Col md={3} xs={3} className="tblTimeSec"> 1.30 PM</RBS.Col>
                 <RBS.Col md={4} xs={4} className="text-center text-success"> Completed</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={visitOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col>
               </RBS.Row>
 
               <RBS.Row className="tblRow">
                 <RBS.Col md={4} xs={4} className="tblDateSec">29-May-2021</RBS.Col>
                 <RBS.Col md={3} xs={3} className="tblTimeSec"> 1.30 PM</RBS.Col>
                 <RBS.Col md={4} xs={4} className="text-center text-success"> Completed</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={visitOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col>
+              </RBS.Row>
+
+              <RBS.Row className="tblRow">
+                <RBS.Col md={4} xs={4} className="tblDateSec">29-May-2021</RBS.Col>
+                <RBS.Col md={3} xs={3} className="tblTimeSec"> 1.30 PM</RBS.Col>
+                <RBS.Col md={4} xs={4} className="text-center text-success"> Completed</RBS.Col>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={visitOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col>
+              </RBS.Row>
+
+              <RBS.Row className="tblRow">
+                <RBS.Col md={4} xs={4} className="tblDateSec">29-May-2021</RBS.Col>
+                <RBS.Col md={3} xs={3} className="tblTimeSec"> 1.30 PM</RBS.Col>
+                <RBS.Col md={4} xs={4} className="text-center text-success"> Completed</RBS.Col>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={visitOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col>
               </RBS.Row>
 
             </RBS.Col>
@@ -219,7 +278,7 @@ export function UserDashboard() {
           <div className="tblCard" >
             <RBS.Col md={12} className="cardHeader pad-5">
               <div className="cardTitle" >Document Vault</div>
-              <div className="cardAction"> <FontAwesomeIcon icon={faPlusCircle} /> &nbsp; <FontAwesomeIcon icon={faExpandAlt} /></div>
+              <div className="cardAction"> <FontAwesomeIcon icon={faPlusCircle} onClick={() => setDocModalShow(true)} /> &nbsp; <FontAwesomeIcon icon={faExpandAlt} onClick={() => window.open("/documentvault")} /></div>
 
               <div className="clearfix" />
             </RBS.Col>
@@ -229,33 +288,49 @@ export function UserDashboard() {
                 <RBS.Col md={6} xs={5} className="tblDateSec"><FontAwesomeIcon icon={faFilePdf} /> Sanction Letter - ICICI Bank </RBS.Col>
                 <RBS.Col md={2} xs={2} className="tblTimeSec"> Loan</RBS.Col>
                 <RBS.Col md={3} xs={4} className="text-center text-success"> 10-May-2020</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={documentOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col>
               </RBS.Row>
               <RBS.Row className="tblRow">
                 <RBS.Col md={6} xs={5} className="tblDateSec"><FontAwesomeIcon icon={faFileExcel} /> Loan Processing Details </RBS.Col>
                 <RBS.Col md={2} xs={2} className="tblTimeSec"> Loan</RBS.Col>
                 <RBS.Col md={3} xs={4} className="text-center text-success"> 10-May-2020</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
-              </RBS.Row>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={documentOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col></RBS.Row>
 
               <RBS.Row className="tblRow">
                 <RBS.Col md={6} xs={5} className="tblDateSec"><FontAwesomeIcon icon={faFileWord} /> Demand Letter - Jan-2021 </RBS.Col>
                 <RBS.Col md={2} xs={2} className="tblTimeSec"> Demand</RBS.Col>
                 <RBS.Col md={3} xs={4} className="text-center text-success"> 10-May-2020</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
-              </RBS.Row>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={documentOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col> </RBS.Row>
               <RBS.Row className="tblRow">
                 <RBS.Col md={6} xs={5} className="tblDateSec"><FontAwesomeIcon icon={faFileWord} /> Demand Letter - Jan-2021 </RBS.Col>
                 <RBS.Col md={2} xs={2} className="tblTimeSec"> Demand</RBS.Col>
                 <RBS.Col md={3} xs={4} className="text-center text-success"> 10-May-2020</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
-              </RBS.Row>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={documentOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col></RBS.Row>
               <RBS.Row className="tblRow">
                 <RBS.Col md={6} xs={5} className="tblDateSec"><FontAwesomeIcon icon={faFileWord} /> Demand Letter - Jan-2021 </RBS.Col>
                 <RBS.Col md={2} xs={2} className="tblTimeSec"> Demand</RBS.Col>
                 <RBS.Col md={3} xs={4} className="text-center text-success"> 10-May-2020</RBS.Col>
-                <RBS.Col md={1} xs={1} className="text-right tblActionBtn"><FontAwesomeIcon icon={faEllipsisV} /> </RBS.Col>
-              </RBS.Row>
+                <RBS.Col md={1} xs={1} className="text-right tblActionBtn">
+                  <RBS.OverlayTrigger trigger="click" rootClose="true" placement="left" overlay={documentOpt}>
+                    <FontAwesomeIcon icon={faEllipsisV} />
+                  </RBS.OverlayTrigger>
+                </RBS.Col>  </RBS.Row>
             </RBS.Col>
 
           </div>
@@ -266,7 +341,7 @@ export function UserDashboard() {
           <RBS.Row className="tblCard tblContianer" >
             <RBS.Col md={12} className="cardHeader pad-5">
               <div className="cardTitle" >Your Neighbourhood</div>
-              <div className="cardAction"> <FontAwesomeIcon icon={faExpandAlt} /></div>
+              <div className="cardAction"> <FontAwesomeIcon icon={faExpandAlt} onClick={() => window.open("/contacts")} /></div>
               <div className="clearfix" />
             </RBS.Col>
             <div className="clearfix" />
@@ -274,31 +349,31 @@ export function UserDashboard() {
             <ConfigProvider colors={['#ff5200', '#900c3f', '#a35709', '#630000']}>
               <RBS.Col md={12} className="pad-5">
                 <RBS.Row className="tblRow">
-                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Gopi Deshmukh" round={true} size="35" /></RBS.Col>
+                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Gopi Deshmukh" round size="35" /></RBS.Col>
                   <RBS.Col md={6} xs={6} className="mobNeighbourName  pad-2">Gopi Deshmukh</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourName  pad-2">A-902</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourBtn text-right"><RBS.Button size="sm" variant="outline-success"><FontAwesomeIcon icon={faWhatsapp} /></RBS.Button> </RBS.Col>
                 </RBS.Row>
                 <RBS.Row className="tblRow">
-                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Sonet Gomes" round={true} size="35" /></RBS.Col>
+                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Sonet Gomes" round size="35" /></RBS.Col>
                   <RBS.Col md={6} xs={6} className="mobNeighbourName  pad-2">Sonet Gomes</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourName  pad-2">A-901</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourBtn text-right"><RBS.Button size="sm" variant="outline-success"><FontAwesomeIcon icon={faWhatsapp} /></RBS.Button> </RBS.Col>
                 </RBS.Row>
                 <RBS.Row className="tblRow">
-                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Danny Morris" round={true} size="35" /></RBS.Col>
+                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Danny Morris" round size="35" /></RBS.Col>
                   <RBS.Col md={6} xs={6} className="mobNeighbourName  pad-2">Danny Morris</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourName  pad-2">A-903</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourBtn text-right"><RBS.Button size="sm" variant="outline-success"><FontAwesomeIcon icon={faWhatsapp} /></RBS.Button> </RBS.Col>
                 </RBS.Row>
                 <RBS.Row className="tblRow">
-                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Umesh Patil" round={true} size="35" /></RBS.Col>
+                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Umesh Patil" round size="35" /></RBS.Col>
                   <RBS.Col md={6} xs={6} className="mobNeighbourName  pad-2">Umesh Patil</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourName  pad-2">A-904</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourBtn text-right"><RBS.Button size="sm" variant="outline-success"><FontAwesomeIcon icon={faWhatsapp} /></RBS.Button> </RBS.Col>
                 </RBS.Row>
                 <RBS.Row className="tblRow">
-                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Mahesh Chavan" round={true} size="35" /></RBS.Col>
+                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Mahesh Chavan" round size="35" /></RBS.Col>
                   <RBS.Col md={6} xs={6} className="mobNeighbourName  pad-2">Mahesh Chavan</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourName  pad-2">A-905</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourBtn text-right"><RBS.Button size="sm" variant="outline-success"><FontAwesomeIcon icon={faWhatsapp} /></RBS.Button> </RBS.Col>
@@ -311,7 +386,7 @@ export function UserDashboard() {
           <RBS.Row className="tblCard tblContianer" >
             <RBS.Col md={12} className="cardHeader pad-5">
               <div className="cardTitle" >Important Contacts</div>
-              <div className="cardAction"> <FontAwesomeIcon icon={faExpandAlt} /></div>
+              <div className="cardAction"> <FontAwesomeIcon icon={faExpandAlt} onClick={() => window.open("/contacts")} /></div>
               <div className="clearfix" />
             </RBS.Col>
             <div className="clearfix" />
@@ -319,31 +394,31 @@ export function UserDashboard() {
             <ConfigProvider colors={['#ff5200', '#900c3f', '#a35709', '#630000']}>
               <RBS.Col md={12} className="pad-5">
                 <RBS.Row className="tblRow">
-                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Arvind Pawar" round={true} size="35" /></RBS.Col>
+                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Arvind Pawar" round size="35" /></RBS.Col>
                   <RBS.Col md={6} xs={5} className="mobNeighbourName  pad-2">Arvind Pawar</RBS.Col>
                   <RBS.Col md={2} xs={3} className="mobNeighbourName  pad-2">Builder Office</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourBtn text-right"><RBS.Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faPhoneAlt} /></RBS.Button> </RBS.Col>
                 </RBS.Row>
                 <RBS.Row className="tblRow">
-                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Sandip Jadhav" round={true} size="35" /></RBS.Col>
+                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Sandip Jadhav" round size="35" /></RBS.Col>
                   <RBS.Col md={6} xs={5} className="mobNeighbourName  pad-2">Sandip Jadhav</RBS.Col>
                   <RBS.Col md={2} xs={3} className="mobNeighbourName  pad-2">Secretary</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourBtn text-right"><RBS.Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faPhoneAlt} /></RBS.Button> </RBS.Col>
                 </RBS.Row>
                 <RBS.Row className="tblRow">
-                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Rajendra Kamble" round={true} size="35" /></RBS.Col>
+                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Rajendra Kamble" round size="35" /></RBS.Col>
                   <RBS.Col md={6} xs={5} className="mobNeighbourName  pad-2">Rajendra Kamble</RBS.Col>
                   <RBS.Col md={2} xs={3} className="mobNeighbourName  pad-2">Bank Officer</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourBtn text-right"><RBS.Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faPhoneAlt} /></RBS.Button> </RBS.Col>
                 </RBS.Row>
                 <RBS.Row className="tblRow">
-                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Dnyesh Dafal" round={true} size="35" /></RBS.Col>
+                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Dnyesh Dafal" round size="35" /></RBS.Col>
                   <RBS.Col md={6} xs={5} className="mobNeighbourName  pad-2">Dnyesh Dafal</RBS.Col>
                   <RBS.Col md={2} xs={3} className="mobNeighbourName  pad-2">Painter</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourBtn text-right"><RBS.Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faPhoneAlt} /></RBS.Button> </RBS.Col>
                 </RBS.Row>
                 <RBS.Row className="tblRow">
-                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Radheshyam Jindal" round={true} size="35" /></RBS.Col>
+                  <RBS.Col md={2} xs={2} className="mobNeighbourAvatar text-center"> <Avatar round="20px" name="Radheshyam Jindal" round size="35" /></RBS.Col>
                   <RBS.Col md={6} xs={5} className="mobNeighbourName  pad-2">Radheshyam Jindal</RBS.Col>
                   <RBS.Col md={2} xs={3} className="mobNeighbourName  pad-2">Furniture</RBS.Col>
                   <RBS.Col md={2} xs={2} className="mobNeighbourBtn text-right"><RBS.Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faPhoneAlt} /></RBS.Button> </RBS.Col>
@@ -360,7 +435,7 @@ export function UserDashboard() {
           <RBS.Col md={12}><h6>Nearby Businesses</h6> <hr /> </RBS.Col>
 
           <RBS.Col md={1} xs={3} className="text-center pad-2 businessSec">
-            <div className="businessIcon"><FontAwesomeIcon icon={faCouch} className="colrWood"/></div>
+            <div className="businessIcon"><FontAwesomeIcon icon={faCouch} className="colrWood" /></div>
             <div className="clearfix"></div>
             <div className="businessName" >Furniture</div>
           </RBS.Col>
@@ -415,7 +490,7 @@ export function UserDashboard() {
             <div className="clearfix"></div>
             <div className="businessName" >Vegetables</div>
           </RBS.Col>
-          <RBS.Col md={1} xs={3} className="text-center pad-2 businessSec">
+          <RBS.Col md={1} xs={3} className="text-center pad-2 businessSec" onClick={() => window.open("/localbusiness")}>
             <div className="businessIcon"> <FontAwesomeIcon icon={faChevronCircleRight} /> </div>
             <div className="clearfix"></div>
             <div className="businessName" >View All</div>
@@ -423,6 +498,11 @@ export function UserDashboard() {
         </RBS.Row>
       </RBS.Container>
     </RBS.Container>
+    <div >
+      <BookVisit show={modalShow} onHide={() => setModalShow(false)} />
+      <AddDocument show={modalDocShow} onHide={() => setDocModalShow(false)} />
+
+    </div>
   </div >;
 }
 

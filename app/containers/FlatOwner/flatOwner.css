@@ -1,0 +1,122 @@
+#flatOwnerContainer {
+padding: 5px 15px;
+font-size: 14px;
+min-height: 300px;
+}
+
+#flatOwnerContainer .profSec{
+border-radius: 5px;
+box-shadow: 1px 1px 2px #5d5d5d;
+min-height: 50px;
+padding: 5px;
+color: #fff;
+min-height: 130px;
+}
+
+#flatOwnerContainer .secVoilet {
+background-color: #a4508b;
+background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+}
+
+#flatOwnerContainer .secRed {
+background-color: #ee9617;
+background-image: linear-gradient(315deg, #ee9617 0%, #fe5858 74%);   
+}
+
+#flatOwnerContainer .secBlue {
+background-color: #2876f9;
+background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
+}
+
+#flatOwnerContainer .userNm{
+font-size: 24px;
+font-weight: 500;
+}
+#flatOwnerContainer .userNm{
+font-size: 24px;
+font-weight: 500;
+}
+#flatOwnerContainer .flatProf,#flatOwnerContainer .purchaseDt,#flatOwnerContainer .completionDt,#flatOwnerContainer .flatDetails {
+font-size: 13px;
+line-height: 1.8;
+}
+
+#flatOwnerContainer .flatCompDetails{
+font-size: 24px;
+font-weight: 500;
+}
+
+
+#flatOwnerContainer .tabCont{
+display: grid;
+}
+
+#flatOwnerContainer .tabCont a{
+color: #000;
+padding:10px 2px;
+font-size: 16px;
+}
+#flatOwnerContainer .tabHdr {
+border-bottom: 1px solid #e1e1e1;
+}
+
+#flatOwnerContainer .tabCont .pad-0{
+padding: 0px 0px;
+}
+
+#flatOwnerContainer .nav-link.active{
+border-bottom: 4px solid #5f0a87;
+color:#5f0a87;
+
+font-weight: 500;
+padding:10px 2px;
+}
+
+#flatOwnerContainer .secHdr{
+    font-weight: 500;
+    font-size: 16px;
+}
+
+#flatOwnerContainer .tab-content{
+    padding: 10px 0px;
+}
+
+#flatOwnerContainer .visitCard{
+    min-height: 50px;
+    border:1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-bottom: 5px;
+}
+#flatOwnerContainer .dtSec {
+    font-size: 24px;
+    font-weight: 500;
+}
+#flatOwnerContainer .monthSec {
+    font-size: 12px;
+    font-weight: 500;
+}
+#flatOwnerContainer .visitAction {
+    font-size: 16px;
+}
+#flatOwnerContainer .inline-block {
+    display: inline;
+    float: left;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#flatOwnerContainer .timeLineSec{
+    width: 100% !important;
+}
+#flatOwnerContainer .timeLineDt {
+    font-size: 16px;
+    font-weight: 500;
+}
+#flatOwnerContainer .timeLineHdr {
+    font-size: 14px;
+    font-weight: 500;
+}
+#flatOwnerContainer .css-1q2n3uv-TimelineContentDetailsWrapper {
+    width: 100% !important;
+}

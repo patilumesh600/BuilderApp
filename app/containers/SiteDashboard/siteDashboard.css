@@ -1,0 +1,138 @@
+#dashSecMain {
+    padding-top: 5px;
+    min-height: 500px;
+    padding-bottom: 10px;
+}
+
+#dashSecMain .siteHdrSec {
+    min-height: 150px;
+    border: 1px solid #dedede;    
+    border-radius: 5px;
+    margin-top: 2px;
+}
+#dashSecMain .secRed {
+    background-color: #ee9617;
+    background-image: linear-gradient(315deg, #ee9617 0%, #fe5858 74%);   
+}
+
+#dashSecMain .secBlue {
+    background-color: #2876f9;
+    background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
+}
+
+#dashSecMain .secGreen {
+    background-color: #3bb78f;
+    background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
+}
+
+#dashSecMain .secVoilet {
+    background-color: #a4508b;
+background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+}
+
+#dashSecMain .secCount {
+    font-size: 50px;
+    margin-top: 10%;
+    font-weight: 500;
+    color: #fff;
+}
+#dashSecMain .secDesc {
+    font-size: 14px;
+    margin-top: 2%;
+    font-weight: 500;
+    color: #fff;
+}
+#dashSecMain .guageCard, #dashSecMain .tblCard {
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    min-height: 150px;
+    padding: 10px 10px;
+    box-shadow: 1px 1px 5px #d3d3d3;
+    margin: 5px;
+}
+
+#dashSecMain .editBtn {
+    color: #d3d3d3;
+    font-size: normal;
+}
+
+#dashSecMain .tblCard{
+    height: 300px;
+overflow-y: auto;
+}
+#dashSecMain .tblCard .tblRow{
+    padding: 5px 0px;
+    font-size: 14px;
+}
+
+#dashSecMain .tblCard .cardHeader{
+    padding: 10px 0px ;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+#dashSecMain .tblCard .tblRow:not(:last-child){
+    border-bottom: 1px solid #eaeaea;
+}
+
+#dashSecMain .tblCard .tblRow:hover{
+    background-color: #d3d3d3;
+    cursor: pointer;
+}
+
+#dashSecMain .tblCard .tblRow .tblActionBtn{
+    color:#9c9c9c;
+}
+.visitApproveBtn :hover {
+    color: #0bab64;
+}
+.visitRejectBtn :hover {
+    color: #fe5858;
+}
+.visitRescheduleBtn :hover{
+    color: navy;
+}
+.chartContainer {    
+    height: '225px';
+    flex: 2;
+  
+}
+
+.progress {
+    height: 5px;
+    margin-top: 10px;
+}
+.ownerCard {
+    border:1px solid #a5a5a5;
+    padding:10px 2px !important;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px #5d5d5d;
+}
+.ownerNm {
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 5px;
+}
+.flatNo {
+    font-size: 12px;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+.viewProfBtn {
+    font-size: 12px;
+    font-weight: 500;
+}
+.viewMoreBtn {
+    font-size: 45px;
+    padding-top: 15px;
+    color: #5d5d5d;
+}
+
+.viewMoreBtn:hover {
+    color: #000;
+    cursor: pointer;
+}
+.ownerSec {
+    padding: 2px 15px !important;
+    display: table-column;
+}

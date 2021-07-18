@@ -71,6 +71,9 @@ min-height: 100% !important;
   .pad-t-10{
     padding-top:10px !important;
   }
+  .pad-t-15{
+    padding-top:15px !important;
+  }
 .colrWood {
   color :#5B270B !important;
 }
@@ -159,6 +162,29 @@ min-height: 100% !important;
 .btn-sm{
   padding: 2px 5px;
 }
+.modal-header {
+padding:10px 15px;  
+border: none;
+color:#9c9c9c;
+}
+.modal-content{
+  border-radius:0px !important;
+  font-size:14px;
+}
+.react-datepicker-wrapper, .react-datepicker__input-container, .react-datepicker__input-container input {
+  width:100%;
+}
+.modal-45w {
+  max-width: none;
+  width:45% !important;
+}
+.popover-body {
+  padding:5px;
+}
+.popover-body .list-group-item{
+  padding:5px 10px;
+}
+
 `;
 
 export default GlobalStyle;

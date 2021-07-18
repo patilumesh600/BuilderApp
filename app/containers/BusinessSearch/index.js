@@ -1,10 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/no-unused-prop-types */
 /**
  *
  * BusinessSearch
  *
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -12,18 +14,19 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectBusinessSearch from './selectors';
-import reducer from './reducer';
-import saga from './saga';
 
 import FilterComp from 'components/BusinessFilter';
 
+import CallbackRequest from 'components/CallbackRequest';
+
 import * as RBS from 'react-bootstrap';
-import { faCouch, faPaintRoller, faCarrot, faTruckLoading, faCapsules, faShoppingBasket, faWrench, faCar, faCocktail, faClinicMedical, faGavel, faPhoneAlt, faPlusCircle, faChevronCircleRight, faUniversity, faTshirt, faMobileAlt, faSchool, faPlug, faMicroscope, faPhotoVideo, faSearch, faCrown, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faFileExcel, faStar } from '@fortawesome/free-regular-svg-icons';
+import { faCouch, faPaintRoller, faCarrot, faTruckLoading, faCapsules, faShoppingBasket, faWrench, faCar, faCocktail, faClinicMedical, faGavel, faPhoneAlt, faUniversity, faTshirt, faMobileAlt, faSchool, faPlug, faMicroscope, faPhotoVideo, faSearch, faCrown, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Avatar, { ConfigProvider } from 'react-avatar';
 import Carousel from 'react-multi-carousel';
+import saga from './saga';
+import reducer from './reducer';
+import makeSelectBusinessSearch from './selectors';
 import 'react-multi-carousel/lib/styles.css';
 import './searchResult.css';
 
@@ -32,6 +35,9 @@ import './searchResult.css';
 export function BusinessSearch() {
   useInjectReducer({ key: 'businessSearch', reducer });
   useInjectSaga({ key: 'businessSearch', saga });
+
+  const [modalShow, setModalShow] = useState(false);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -74,9 +80,9 @@ export function BusinessSearch() {
         <RBS.Col md={12}>
           <RBS.Row className="businessContainer">
             <RBS.Col md={12} className="pad-0">
-              <Carousel responsive={responsive} arrows={true} renderButtonGroupOutside={true}>
+              <Carousel responsive={responsive} arrows renderButtonGroupOutside>
                 <div className="text-center businessTab">
-                  <div className="businessIcon"><FontAwesomeIcon icon={faCouch}/></div>
+                  <div className="businessIcon"><FontAwesomeIcon icon={faCouch} /></div>
                   <div className="clearfix"></div>
                   <div className="businessName" >Furniture</div>
                 </div>
@@ -86,7 +92,7 @@ export function BusinessSearch() {
                   <div className="businessName" >Painters</div>
                 </div>
                 <div className="text-center businessTab">
-                  <div className="businessIcon"><FontAwesomeIcon icon={faTruckLoading}  /></div>
+                  <div className="businessIcon"><FontAwesomeIcon icon={faTruckLoading} /></div>
                   <div className="clearfix"></div>
                   <div className="businessName" >Transports</div>
                 </div>
@@ -137,7 +143,7 @@ export function BusinessSearch() {
                   <div className="businessName" >Banks</div>
                 </div>
                 <div className="text-center businessTab">
-                  <div className="businessIcon"><FontAwesomeIcon icon={faTshirt}  /></div>
+                  <div className="businessIcon"><FontAwesomeIcon icon={faTshirt} /></div>
                   <div className="clearfix"></div>
                   <div className="businessName" >Clothing Stores</div>
                 </div>
@@ -174,7 +180,7 @@ export function BusinessSearch() {
         </RBS.Col>
       </RBS.Row>
 
-     <RBS.Row className="searchResultSec">
+      <RBS.Row className="searchResultSec">
         <RBS.Col md={2} className="filterSec pad-0 d-none d-md-block">
           <FilterComp />
         </RBS.Col>
@@ -209,7 +215,7 @@ export function BusinessSearch() {
                     </div>
                   </RBS.Col>
                   <RBS.Col md={2} className="businessListAct">
-                    <RBS.Button block variant="outline-primary" size="sm"><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
+                    <RBS.Button block variant="outline-primary" size="sm"  onClick={() => setModalShow(true)} ><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
                   </RBS.Col>
                 </RBS.Row>
               </div>
@@ -230,7 +236,7 @@ export function BusinessSearch() {
                     </div>
                   </RBS.Col>
                   <RBS.Col md={2} className="businessListAct">
-                    <RBS.Button block variant="outline-primary" size="sm"><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
+                    <RBS.Button block variant="outline-primary" size="sm"  onClick={() => setModalShow(true)} ><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
                   </RBS.Col>
                 </RBS.Row>
               </div>
@@ -251,7 +257,7 @@ export function BusinessSearch() {
                     </div>
                   </RBS.Col>
                   <RBS.Col md={2} className="businessListAct">
-                    <RBS.Button block variant="outline-primary" size="sm"><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
+                    <RBS.Button block variant="outline-primary" size="sm"  onClick={() => setModalShow(true)} ><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
                   </RBS.Col>
                 </RBS.Row>
               </div>
@@ -264,14 +270,14 @@ export function BusinessSearch() {
                     <div className="clearfix" />
                     <div className="businessGrp">
                       <RBS.Badge pill variant="warning"><FontAwesomeIcon className="text-dark" icon={faStar} /> 4 </RBS.Badge> &nbsp; &nbsp;
-                     </div>
+                    </div>
                     <div className="clearfix" />
                     <div className="businessInfo">
                       <small><FontAwesomeIcon icon={faPhoneAlt} /> : 9975463675 | <FontAwesomeIcon icon={faEnvelope} /> : rfAndDecor@gmail.com | <b>Distance :</b> 5 Km</small>
                     </div>
                   </RBS.Col>
                   <RBS.Col md={2} className="businessListAct">
-                    <RBS.Button block variant="outline-primary" size="sm"><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
+                    <RBS.Button block variant="outline-primary" size="sm"  onClick={() => setModalShow(true)} ><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
                   </RBS.Col>
                 </RBS.Row>
               </div>
@@ -292,7 +298,7 @@ export function BusinessSearch() {
                     </div>
                   </RBS.Col>
                   <RBS.Col md={2} className="businessListAct">
-                    <RBS.Button block variant="outline-primary" size="sm"><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
+                    <RBS.Button block variant="outline-primary" size="sm"  onClick={() => setModalShow(true)} ><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
                   </RBS.Col>
                 </RBS.Row>
               </div>
@@ -313,7 +319,7 @@ export function BusinessSearch() {
                     </div>
                   </RBS.Col>
                   <RBS.Col md={2} className="businessListAct">
-                    <RBS.Button block variant="outline-primary" size="sm"><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
+                    <RBS.Button block variant="outline-primary" size="sm"  onClick={() => setModalShow(true)} ><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
                   </RBS.Col>
                 </RBS.Row>
               </div>
@@ -334,7 +340,7 @@ export function BusinessSearch() {
                     </div>
                   </RBS.Col>
                   <RBS.Col md={2} className="businessListAct">
-                    <RBS.Button block variant="outline-primary" size="sm"><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
+                    <RBS.Button block variant="outline-primary" size="sm"  onClick={() => setModalShow(true)} ><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
                   </RBS.Col>
                 </RBS.Row>
               </div>
@@ -347,14 +353,14 @@ export function BusinessSearch() {
                     <div className="clearfix" />
                     <div className="businessGrp">
                       <RBS.Badge pill variant="warning"><FontAwesomeIcon className="text-dark" icon={faStar} /> 4 </RBS.Badge> &nbsp; &nbsp;
-                     </div>
+                    </div>
                     <div className="clearfix" />
                     <div className="businessInfo">
                       <small><FontAwesomeIcon icon={faPhoneAlt} /> : 9975463675 | <FontAwesomeIcon icon={faEnvelope} /> : rfAndDecor@gmail.com | <b>Distance :</b> 5 Km</small>
                     </div>
                   </RBS.Col>
                   <RBS.Col md={2} className="businessListAct">
-                    <RBS.Button block variant="outline-primary" size="sm"><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
+                    <RBS.Button block variant="outline-primary" size="sm"  onClick={() => setModalShow(true)} ><FontAwesomeIcon icon={faPhoneAlt} /> Request callback</RBS.Button>
                   </RBS.Col>
                 </RBS.Row>
               </div>
@@ -364,6 +370,9 @@ export function BusinessSearch() {
         </RBS.Col>
       </RBS.Row>
     </RBS.Container>
+    <div>
+      <CallbackRequest show={modalShow} onHide={() => setModalShow(false)} />
+    </div>
   </div>;
 }
 

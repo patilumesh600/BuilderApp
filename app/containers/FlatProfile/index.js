@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 /**
  *
  * FlatProfile
@@ -12,19 +13,15 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectFlatProfile from './selectors';
-import reducer from './reducer';
-import saga from './saga';
 import './flatProfile.css';
 import * as RBS from 'react-bootstrap';
 import { faCalendarPlus, faCloudDownloadAlt, faHome } from '@fortawesome/free-solid-svg-icons';
-import { faFileExcel, faBuilding } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import userImg from '../../images/icons/UserIcon.jpg';
 import ProgressBar from 'react-customizable-progressbar';
-import Avatar, { ConfigProvider } from 'react-avatar';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Chrono } from "react-chrono";
+import saga from './saga';
+import reducer from './reducer';
+import makeSelectFlatProfile from './selectors';
 
 
 export function FlatProfile() {
@@ -51,7 +48,7 @@ export function FlatProfile() {
                   strokeLinecap="round"
                   trackStrokeColor="#d3d3d3"
                   trackStrokeLinecap="square"
-                  initialAnimation={true}
+                  initialAnimation
                   transition="1.5s ease 0.5s"
                   trackTransition="0s ease"
                 >
@@ -71,7 +68,7 @@ export function FlatProfile() {
              
             </RBS.Col>
             <RBS.Col md={12} className="d-none d-md-block">
-            <hr className="hrWarning" />
+              <hr className="hrWarning" />
               <div className="flatDetailLbl"> Owner</div>
               <div className="flatDetailValue"> Sanket Sharadrao Deshmukh</div>
               <div className="clearfix" />
@@ -96,7 +93,8 @@ export function FlatProfile() {
         </RBS.Col>
         <RBS.Col md={9} className="pad-2">
           <div className="timelineCard">
-            <Chrono mode="VERTICAL"
+            <Chrono
+              mode="VERTICAL"
               theme={{ primary: "#34656d", secondary: "#d3d3d3" }}
               hideControls >
               <RBS.Row className="timeLineSec">

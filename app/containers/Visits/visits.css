@@ -1,0 +1,60 @@
+#visitContainer {
+    padding: 10px 15px;
+}
+
+#visitContainer .visitListSec {
+    min-height: 100px;
+    border:1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+#visitContainer .visitRowSec{
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+#visitContainer .visitRowSec:hover,#visitContainer .visitRowSec.active{
+   background-color: #e4e4e4;
+   cursor: pointer;
+}
+
+#visitContainer .visitRowSec .dateSec {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+#visitContainer .visitRowSec .valignTxt {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+}
+#visitContainer .visitDetailCont {
+    border:1px solid #d3d3d3;
+    border-radius: 5px;
+    min-height: 100px;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.visitDateSec {
+    font-size: 16px;
+    font-weight: 500;
+}
+.visitStatusSec {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.visitCloseBtn {
+    cursor: pointer;
+}
+.visitLbl {
+    font-weight: 500;
+    color: #5c5c5c;
+}
+.lh-2 {
+    line-height: 2;
+}
