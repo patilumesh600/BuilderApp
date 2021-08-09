@@ -3,7 +3,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import * as RBS from 'react-bootstrap';
-import { faBuilding, faHome, faFolderOpen, faSignOutAlt, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faBuilding, faHome, faFolderOpen, faSignOutAlt, faUsers, faChartPie } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './siteHeader.css';
@@ -16,7 +16,7 @@ function SiteHeader() {
         <RBS.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <RBS.Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end" >
           <RBS.Nav>
-            <RBS.Nav.Link href="/dashboard" className="helpIcon"><FontAwesomeIcon icon={faHome} /> Home</RBS.Nav.Link>
+            <RBS.Nav.Link href="/sitedashboard" className="helpIcon"><FontAwesomeIcon icon={faChartPie} /> Home</RBS.Nav.Link>
             <RBS.Nav.Link href="/flatProfile" className="helpIcon"><FontAwesomeIcon icon={faBuilding} /> Flat Profile</RBS.Nav.Link>
             <RBS.Nav.Link href="/documentVault" className="helpIcon"><FontAwesomeIcon icon={faFolderOpen} /> Documents</RBS.Nav.Link>
             <RBS.Nav.Link href="/contacts" className="helpIcon"><FontAwesomeIcon icon={faUsers} /> Contacts</RBS.Nav.Link>

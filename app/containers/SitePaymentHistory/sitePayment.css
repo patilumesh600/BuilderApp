@@ -1,0 +1,88 @@
+#sitePayContainer {
+    min-height: 400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#sitePayContainer .guageCard, #sitePayContainer .tblCard {
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    min-height: 150px;
+    padding: 10px 10px;
+    box-shadow: 1px 1px 5px #d3d3d3;
+    margin: 5px;
+}
+#sitePayContainer .tblCard.grad-blue {
+    background-color: #5ca0f2;
+    background-image: linear-gradient(315deg, #5ca0f2 0%, #f5f7f6 74%);
+}
+#sitePayContainer .cardTitle {
+   
+}
+#sitePayContainer .cardTitle-sm {
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 5px;
+}
+
+#sitePayContainer .titleAmt {
+    font-size: 20px;
+    font-weight: normal;
+}
+.titleHdr {
+    font-size: 24px;
+    font-weight: 500;    
+    color :#20b2aa;
+}
+.titleHdrMth{
+    color: #c71585;
+    font-size: 24px;
+    font-weight: 500;    
+}
+
+#sitePayContainer .titleSep {
+    color: #d9d9d9;
+    font-size: 24px;
+}
+
+#sitePayContainer .titleAmtMnth {
+color: #9c9c9c;
+font-size: 12px;
+}
+
+#sitePayContainer .tblCard .tblRow{
+    padding: 5px 0px;
+    font-size: 14px;
+}
+
+#sitePayContainer .tblCard .cardHeader{
+    padding: 10px 0px ;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+#sitePayContainer .tblCard .tblRow:not(:last-child){
+    border-bottom: 1px solid #eaeaea;
+}
+
+#sitePayContainer .tblCard .tblRow:hover{
+    background-color: #d3d3d3;
+    cursor: pointer;
+}
+
+#sitePayContainer .tblCard .tblRow .tblActionBtn{
+    color:#9c9c9c;
+}
+
+.txnTblHdr {
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid #d3d3d3;
+    margin-bottom: 5px;
+}
+.txnTblRow {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #e5e5e5;
+}

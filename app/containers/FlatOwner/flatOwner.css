@@ -83,7 +83,7 @@ padding:10px 2px;
 
 #flatOwnerContainer .visitCard{
     min-height: 50px;
-    border:1px solid #d3d3d3;
+    border-bottom:1px solid #d3d3d3;
     border-radius: 5px;
     padding: 5px 15px;
     margin-bottom: 5px;
@@ -119,4 +119,18 @@ padding:10px 2px;
 }
 #flatOwnerContainer .css-1q2n3uv-TimelineContentDetailsWrapper {
     width: 100% !important;
+}
+.docRowHdr {
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #9c9c9c;
+}
+
+.docRow {
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid #e5e5e5;
 }

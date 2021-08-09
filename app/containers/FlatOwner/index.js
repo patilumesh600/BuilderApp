@@ -19,7 +19,7 @@ import { compose } from 'redux';
 import * as RBS from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faClipboardList, faCloudDownloadAlt, faEllipsisV, faFileDownload, faPlusCircle, faRupeeSign, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faClipboardList, faCloudDownloadAlt, faEllipsisV, faFileDownload, faLock, faPlus, faRupeeSign, faSave, faShare, faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarPlus, faClock } from '@fortawesome/free-regular-svg-icons';
 import ProgressBar from 'react-customizable-progressbar';
 
@@ -133,27 +133,32 @@ export function FlatOwner() {
             <RBS.Row>
               <RBS.Col md={12} sm={12} className="text-center tabHdr">
                 <RBS.Row>
-                  <RBS.Col md={{ span: 6, offset: 3 }} xs={12}>
+                  <RBS.Col md={{ span: 8, offset: 2 }} xs={12}>
                     <RBS.Nav className="tabCont">
                       <RBS.Row>
-                        <RBS.Col md={3} xs={3} className="pad-0">
+                        <RBS.Col md={{ span: 2, offset: 1 }} xs={3} className="pad-0">
                           <RBS.Nav.Item>
                             <RBS.Nav.Link eventKey="first">Visit History</RBS.Nav.Link>
                           </RBS.Nav.Item>
                         </RBS.Col>
-                        <RBS.Col md={3} xs={3} className="pad-0">
+                        <RBS.Col md={2} xs={3} className="pad-0">
                           <RBS.Nav.Item>
                             <RBS.Nav.Link eventKey="second">Payment History</RBS.Nav.Link>
                           </RBS.Nav.Item>
                         </RBS.Col>
-                        <RBS.Col md={3} xs={3} className="pad-0">
+                        <RBS.Col md={2} xs={3} className="pad-0">
                           <RBS.Nav.Item>
                             <RBS.Nav.Link eventKey="third">Flat Progress</RBS.Nav.Link>
                           </RBS.Nav.Item>
                         </RBS.Col>
-                        <RBS.Col md={3} xs={3} className="pad-0">
+                        <RBS.Col md={2} xs={3} className="pad-0">
                           <RBS.Nav.Item>
-                            <RBS.Nav.Link eventKey="forth">User Details</RBS.Nav.Link>
+                            <RBS.Nav.Link eventKey="forth">Document Vault</RBS.Nav.Link>
+                          </RBS.Nav.Item>
+                        </RBS.Col>
+                        <RBS.Col md={2} xs={3} className="pad-0">
+                          <RBS.Nav.Item>
+                            <RBS.Nav.Link eventKey="fifth">User Details</RBS.Nav.Link>
                           </RBS.Nav.Item>
                         </RBS.Col>
                       </RBS.Row>
@@ -500,7 +505,7 @@ export function FlatOwner() {
                       <RBS.Row>
                         <RBS.Col md={12}>
                           <RBS.Button variant="outline-primary" size="sm" className="float-right">
-                            <FontAwesomeIcon icon={faPlusCircle} /> &nbsp; Add Progress
+                            <FontAwesomeIcon icon={faPlus} /> &nbsp; Add Progress
                           </RBS.Button>
                         </RBS.Col>
                         <RBS.Col md={12} className="pad-2">
@@ -598,8 +603,98 @@ export function FlatOwner() {
                     </RBS.Container>
 
                   </RBS.Tab.Pane>
-
                   <RBS.Tab.Pane eventKey="forth">
+                    <RBS.Container fluid>
+                      <RBS.Row>
+                        <RBS.Col md={12}>
+                          <RBS.Button variant="outline-primary" className="float-right" size="sm" ><FontAwesomeIcon icon={faPlus} /> Add Document</RBS.Button>
+                          <div className="clearfix" />
+                          <hr className="hrgray" />
+                        </RBS.Col>
+                        <RBS.Col md={12}>
+                          <div className="docRowHdr text-center">
+                            <RBS.Row>
+                              <RBS.Col md={1}> SrNo</RBS.Col>
+                              <RBS.Col md={3} className="">File Name</RBS.Col>
+                              <RBS.Col md={2} className="">Uploaded By</RBS.Col>
+                              <RBS.Col md={2} className="">Upload Date</RBS.Col>
+                              <RBS.Col md={2} className="">Related to</RBS.Col>
+                              <RBS.Col md={2} className="">Action
+                              </RBS.Col>
+                            </RBS.Row>
+                          </div>
+                        </RBS.Col>
+                        <RBS.Col md={12}>
+                          <div className="docRow text-center">
+                            <RBS.Row>
+                              <RBS.Col md={1}> 1</RBS.Col>
+                              <RBS.Col md={3} className="">Disbustment_Doc_Level_9.pdf</RBS.Col>
+                              <RBS.Col md={2} className="">Admin</RBS.Col>
+                              <RBS.Col md={2} className="">23-Feb-2021 10:23pm</RBS.Col>
+                              <RBS.Col md={2} className="">Disburstment Document</RBS.Col>
+                              <RBS.Col md={2} className="">
+                                <FontAwesomeIcon icon={faShare} className="text-primary" /> &nbsp;&nbsp;
+                                <FontAwesomeIcon icon={faLock} className="text-secondary" /> &nbsp;&nbsp;
+                                <FontAwesomeIcon icon={faTrash} className="text-danger" /> &nbsp;&nbsp;
+                              </RBS.Col>
+                            </RBS.Row>
+                          </div>
+                        </RBS.Col>
+                        <RBS.Col md={12}>
+                          <div className="docRow text-center">
+                            <RBS.Row>
+                              <RBS.Col md={1}> 2</RBS.Col>
+                              <RBS.Col md={3} className="">Agreement_document_A-306.pdf</RBS.Col>
+                              <RBS.Col md={2} className="">Admin</RBS.Col>
+                              <RBS.Col md={2} className="">23-Jun-2021 10:23pm</RBS.Col>
+                              <RBS.Col md={2} className="">Aggreement Document</RBS.Col>
+                              <RBS.Col md={2} className="">
+                                <FontAwesomeIcon icon={faShare} className="text-primary" /> &nbsp;&nbsp;
+                                <FontAwesomeIcon icon={faLock} className="text-secondary" /> &nbsp;&nbsp;
+                                <FontAwesomeIcon icon={faTrash} className="text-danger" /> &nbsp;&nbsp;
+                              </RBS.Col>
+                            </RBS.Row>
+                          </div>
+                        </RBS.Col>
+                        <RBS.Col md={12}>
+                          <div className="docRow text-center">
+                            <RBS.Row>
+                              <RBS.Col md={1}> 3</RBS.Col>
+                              <RBS.Col md={3} className="">Agreement_document_A-306.pdf</RBS.Col>
+                              <RBS.Col md={2} className="">Admin</RBS.Col>
+                              <RBS.Col md={2} className="">23-Jun-2021 10:23pm</RBS.Col>
+                              <RBS.Col md={2} className="">Aggreement Document</RBS.Col>
+                              <RBS.Col md={2} className="">
+                                <FontAwesomeIcon icon={faShare} className="text-primary" /> &nbsp;&nbsp;
+                                <FontAwesomeIcon icon={faLock} className="text-secondary" /> &nbsp;&nbsp;
+                                <FontAwesomeIcon icon={faTrash} className="text-danger" /> &nbsp;&nbsp;
+                              </RBS.Col>
+                            </RBS.Row>
+                          </div>
+                        </RBS.Col>
+                        <RBS.Col md={12}>
+                          <div className="docRow text-center">
+                            <RBS.Row>
+                              <RBS.Col md={1}> 4</RBS.Col>
+                              <RBS.Col md={3} className="">Agreement_document_A-306.pdf</RBS.Col>
+                              <RBS.Col md={2} className="">Admin</RBS.Col>
+                              <RBS.Col md={2} className="">23-Jun-2021 10:23pm</RBS.Col>
+                              <RBS.Col md={2} className="">Aggreement Document</RBS.Col>
+                              <RBS.Col md={2} className="">
+                                <FontAwesomeIcon icon={faShare} className="text-primary" /> &nbsp;&nbsp;
+                                <FontAwesomeIcon icon={faLock} className="text-secondary" /> &nbsp;&nbsp;
+                                <FontAwesomeIcon icon={faTrash} className="text-danger" /> &nbsp;&nbsp;
+                              </RBS.Col>
+                            </RBS.Row>
+                          </div>
+                        </RBS.Col>
+                      </RBS.Row>
+
+                    </RBS.Container>
+
+                  </RBS.Tab.Pane>
+
+                  <RBS.Tab.Pane eventKey="fifth">
                     <RBS.Container fluid>
                       <div>
                         <h5>Personal Profile</h5>

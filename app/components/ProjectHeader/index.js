@@ -13,11 +13,18 @@ import { faBuilding, faHome, faWallet, faFolderOpen, faSignOutAlt, faUsers } fro
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './headerStyle.css';
 
+import projLogo from '../../images/icons/CuBu.png';
+
+
 function ProjectHeader() {
   return (
     <div id="hdrContainer">
       <RBS.Navbar className="hdrShadow" collapseOnSelect expand="lg" bg="light">
-        <RBS.Navbar.Brand href="/dashboard" className="brandIcon"><div className="brandIcon"><FontAwesomeIcon icon={faBuilding} /> | CuBu </div></RBS.Navbar.Brand>
+        <RBS.Navbar.Brand href="/dashboard" className="brandIcon">
+          <div className="brandIcon"><FontAwesomeIcon icon={faBuilding} /> | CuBu </div>
+
+          {/* <RBS.Image src={projLogo} height="125" width="125" /> */}
+        </RBS.Navbar.Brand>
         <RBS.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <RBS.Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end" >
           <RBS.Nav>
