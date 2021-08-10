@@ -4,10 +4,19 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+// import { DEFAULT_ACTION } from './constants';
+import * as Constants from './constants';
 
 export function defaultAction() {
   return {
-    type: DEFAULT_ACTION,
+    type: Constants.DEFAULT_ACTION,
+  };
+}
+
+export function login(loginName, password) {
+  return {
+    type: Constants.LOGIN,
+    loginName,
+    password,   
   };
 }
