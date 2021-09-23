@@ -20,3 +20,10 @@ export function login(loginName, password) {
     password,   
   };
 }
+
+export function setLoginResponse(loginData) {
+  return {
+    type: Constants.LOGIN_RES,
+    loginData,  
+  };
+}

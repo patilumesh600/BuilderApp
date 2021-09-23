@@ -42,11 +42,18 @@ export function Login(props) {
     e.preventDefault();
     props.actions.login(userName, password);
   };
+  
+  const listItems = props.login && props.login.loginData && props.login.loginData.map((element) =>
+    <li>{element.blurb}</li>
+  );
 
   return <div id="loginContainer">
     <RBS.Container fluid>
       <RBS.Row>
         <RBS.Col md={7} className="infoTxtSec">
+          <div>
+            {listItems}
+          </div>
           <div className="infoHeading">We Helps you out with</div>
           <hr className="hrWarning-2x" />
           <h4>
